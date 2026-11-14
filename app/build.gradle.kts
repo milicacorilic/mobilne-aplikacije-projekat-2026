@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.compose)
+    //alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -32,10 +32,11 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
-        compose = true
+        //compose = true
+        viewBinding = true
     }
 }
-
+/*
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
@@ -52,4 +53,14 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+}*/
+dependencies {
+    implementation("com.google.android.material:material:1.13.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+    implementation("androidx.navigation:navigation-fragment:2.9.0")
+    implementation("androidx.navigation:navigation-ui:2.9.0")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.junit)
 }

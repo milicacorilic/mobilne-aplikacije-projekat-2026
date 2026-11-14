@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.Recipe_App" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/burnt_sienna</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/amber_sky</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
 
-    <style name="Theme.Recipe_App" parent="android:Theme.Material.Light.NoActionBar" />
+        <item name="colorSecondary">@color/ochre</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/amber_sky</item>
+        <item name="colorOnSecondaryContainer">@color/ink</item>
+
+        <item name="colorTertiary">@color/golden_grass</item>
+        <item name="colorOnTertiary">@color/ink</item>
+
+        <item name="android:colorBackground">@color/dust</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorSurface">@color/card_cream</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorOutline">@color/ochre</item>
+
+        <item name="colorError">@color/error_red</item>
+        <item name="colorOnError">@color/white</item>
+
+        <item name="android:statusBarColor">@color/burnt_sienna</item>
+    </style>
 </resources>

@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- Golden Savanna palette -->
+    <color name="burnt_sienna">#8A3A10</color>
+    <color name="ochre">#C07020</color>
+    <color name="golden_grass">#D8A840</color>
+    <color name="amber_sky">#E8C878</color>
+    <color name="dust">#F2E4C0</color>
+
+    <!-- Neutral colors -->
+    <color name="ink">#2B1A0E</color>
+    <color name="card_cream">#FFF8EA</color>
+    <color name="error_red">#B3261C</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Speciale -->
+    <color name="brand_ingredient">#6B2B08</color>
+</resources>
