@@ -1,18 +1,18 @@
 package com.example.recipe_app.model.enums;
 
 public enum DishType {
-    SUPA,
-    CORBA,
-    TESTENINA,
-    PICA,
-    SENDVIC,
+    SOUP,
+    BROTH,
+    PASTA,
+    PIZZA,
+    SANDWICH,
     BURGER,
-    RIZOTO,
-    JELO_OD_MESA,
-    JELO_OD_RIBE,
-    JELO_OD_POVRCA,
-    PEKARSKI_PROIZVOD,
-    KOLAC,
-    TORTA,
-    PALACINKE
+    RIZOTTO,
+    MEAT_DISH,
+    FISH_DISH,
+    VEGETABLE_DISH,
+    BAKERY_PRODUCT,
+    COKKIE,
+    CAKE,
+    PANCAKES
 }

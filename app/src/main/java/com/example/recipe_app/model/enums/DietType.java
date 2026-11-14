@@ -1,10 +1,10 @@
 package com.example.recipe_app.model.enums;
 
 public enum DietType {
-    VEGETERIJANSKA,
-    VEGANSKA,
-    POSNA,
-    MRSNA,
-    HRONO,
-    PESKATERIJANSKA
+    VEGETERIAN,
+    VEGAN,
+    LENT,
+    REGULAR,
+    CHRONO,
+    PESCATERIAN
 }
