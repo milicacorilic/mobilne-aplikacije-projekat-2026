@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Recipe_App</string>
+    <string name="top_bar_title">RECIPE APP</string>
+    <string name="login_title">Welcome</string>
+    <string name="login_subtitle">Log in to save your favorites and share something delicious.</string>
+    <string name="email_label">Email address</string>
+    <string name="email_hint">you@example.com</string>
+    <string name="password_label">Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="log_in">Log in</string>
+    <string name="new_to_kitchen">New to the kitchen?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="error_required">This field is required</string>
 </resources>
