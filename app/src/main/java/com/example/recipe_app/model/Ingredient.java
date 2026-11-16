@@ -8,6 +8,6 @@ public class Ingredient {
     public String Name;
     public IngredientType IngredientType;
     public UnitOfMeasure UnitOfMeasure;
-    public float Ammount;   // optional
+    public float Amount;   // optional
     public IngredientBrand Brand;
 }

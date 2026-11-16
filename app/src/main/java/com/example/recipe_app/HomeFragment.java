@@ -1,15 +1,12 @@
 package com.example.recipe_app;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class HomeFragment extends Fragment {
 
@@ -22,7 +19,17 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         view.findViewById(R.id.btnGoToLogin).setOnClickListener(v ->
-                Navigation.findNavController(v)
-                        .navigate(R.id.action_home_to_login));
+                Navigation.findNavController(v).navigate(R.id.action_home_to_login));
+
+        view.findViewById(R.id.btnGoToProfile).setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_home_to_profile));
+
+        // opens first recipe from FakeData (recipeId = "1")
+        view.findViewById(R.id.btnGoToRecipe).setOnClickListener(v -> {
+            Bundle args = new Bundle();
+            args.putString("recipeId", "1");
+            Navigation.findNavController(v)
+                    .navigate(R.id.action_home_to_recipeDetails, args);
+        });
     }
 }

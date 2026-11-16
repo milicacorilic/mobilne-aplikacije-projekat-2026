@@ -1,4 +1,7 @@
 <resources>
+    <string name="app_name">Recipe app</string>
+
+    <!-- login -->
     <string name="top_bar_title">RECIPE APP</string>
     <string name="login_title">Welcome</string>
     <string name="login_subtitle">Log in to save your favorites and share something delicious.</string>
@@ -13,4 +16,33 @@
     <string name="new_to_kitchen">New to the kitchen?</string>
     <string name="sign_up">Sign up</string>
     <string name="error_required">This field is required</string>
+
+    <!-- profile -->
+    <string name="profile_title">My profile</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="added_recipes">Added recipes</string>
+    <string name="saved_recipes">Saved recipes</string>
+    <string name="personal_information">Personal information</string>
+    <string name="label_full_name">Full name</string>
+    <string name="label_username">Username</string>
+    <string name="label_email">Email address</string>
+    <string name="label_phone">Phone number</string>
+    <string name="label_location">Location</string>
+    <string name="label_member_since">Member since</string>
+    <string name="label_diet">Dietary restrictions</string>
+    <string name="added_recipes_subtitle">Your recipes, all in one place</string>
+    <string name="edit">Edit</string>
+    <string name="add_recipe">Add recipe</string>
+    <string name="open_profile">My profile</string>
+
+    <!-- Recipe page -->
+    <string name="ingredients">Ingredients</string>
+    <string name="ingredients_subtitle">Everything you\'ll need</string>
+    <string name="lets_cook">Let\'s get cooking</string>
+    <string name="save_recipe">Save recipe</string>
+    <string name="stat_total">Total</string>
+    <string name="stat_servings">Servings</string>
+    <string name="stat_rating">Rating</string>
+    <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
 </resources>

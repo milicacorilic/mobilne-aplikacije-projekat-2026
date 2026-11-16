@@ -13,10 +13,33 @@
         <action
             android:id="@+id/action_home_to_login"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_home_to_recipeDetails"
+            app:destination="@id/recipeDetailsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.recipe_app.LoginFragment"
-        android:label="Login" />
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.recipe_app.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profile_to_recipeDetails"
+            app:destination="@id/recipeDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipeDetailsFragment"
+        android:name="com.example.recipe_app.RecipeDetailsFragment"
+        android:label="Recipe details"
+        tools:layout="@layout/fragment_recipe_details" />
 </navigation>
