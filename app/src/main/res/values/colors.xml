@@ -1,10 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Golden Savanna palette -->
+    <color name="burnt_sienna">#8A3A10</color>
+    <color name="ochre">#C07020</color>
+    <color name="golden_grass">#D8A840</color>
+    <color name="amber_sky">#E8C878</color>
+    <color name="dust">#F2E4C0</color>
+
+    <!-- Neutral colors -->
+    <color name="ink">#2B1A0E</color>
+    <color name="ink_muted">#5C3A1E</color>
+    <color name="card_cream">#FFF8EA</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Surface containers (shades between white and dust) -->
+    <color name="surface_container_low">#FBF0D8</color>
+    <color name="surface_container">#F6EACB</color>
+    <color name="surface_container_high">#F0E0B8</color>
+    <color name="surface_container_highest">#EAD7A8</color>
+    <color name="outline_variant">#E0C890</color>
+
+    <!-- Tertiary / inverse -->
+    <color name="tertiary_container">#F5E0A8</color>
+    <color name="inverse_surface">#3D2A1A</color>
+    <color name="inverse_on_surface">#FFF3DE</color>
+    <color name="inverse_primary">#FFB68A</color>
+
+    <!-- Error -->
+    <color name="error_red">#B3261C</color>
+    <color name="error_container">#F9DEDC</color>
+    <color name="on_error_container">#410E0B</color>
+
+    <!-- Specials -->
+    <color name="brand_ingredient">#6B2B08</color>
 </resources>

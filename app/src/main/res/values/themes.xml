@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Theme.Recipe_App" parent="Theme.Material3.Light.NoActionBar">
 
-<<<<<<< Updated upstream
     <style name="Theme.Recipe_App" parent="android:Theme.Material.Light.NoActionBar" />
-=======
         <item name="colorSecondary">@color/ochre</item>
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorSecondaryContainer">@color/dust</item>
@@ -28,5 +27,52 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
->>>>>>> Stashed changes
+</resources>
+        <item name="colorPrimary">@color/burnt_sienna</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/amber_sky</item>
+        <item name="colorOnPrimaryContainer">@color/ink</item>
+        <item name="colorPrimaryInverse">@color/inverse_primary</item>
+
+        <item name="colorSecondary">@color/ochre</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/amber_sky</item>
+        <item name="colorOnSecondaryContainer">@color/ink</item>
+
+        <item name="colorTertiary">@color/golden_grass</item>
+        <item name="colorOnTertiary">@color/ink</item>
+        <item name="colorTertiaryContainer">@color/tertiary_container</item>
+        <item name="colorOnTertiaryContainer">@color/ink</item>
+
+        <item name="android:colorBackground">@color/dust</item>
+        <item name="colorOnBackground">@color/ink</item>
+        <item name="colorSurface">@color/card_cream</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="colorSurfaceVariant">@color/dust</item>
+        <item name="colorOnSurfaceVariant">@color/ink_muted</item>
+        <item name="colorSurfaceInverse">@color/inverse_surface</item>
+        <item name="colorOnSurfaceInverse">@color/inverse_on_surface</item>
+
+        <!-- cards, inputs, circles -->
+        <item name="colorSurfaceContainerLowest">@color/white</item>
+        <item name="colorSurfaceContainerLow">@color/surface_container_low</item>
+        <item name="colorSurfaceContainer">@color/surface_container</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_container_high</item>
+        <item name="colorSurfaceContainerHighest">@color/surface_container_highest</item>
+
+        <item name="colorOutline">@color/ochre</item>
+        <item name="colorOutlineVariant">@color/outline_variant</item>
+
+        <item name="colorError">@color/error_red</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="colorErrorContainer">@color/error_container</item>
+        <item name="colorOnErrorContainer">@color/on_error_container</item>
+
+        <item name="android:statusBarColor">@color/burnt_sienna</item>
+
+        <!-- default component styles -->
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+    </style>
 </resources>
