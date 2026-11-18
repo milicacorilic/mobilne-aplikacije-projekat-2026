@@ -89,7 +89,7 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onRecipeClick(Recipe recipe) {
                         Bundle args = new Bundle();
-                        args.putString("recipeId", String.valueOf(recipe.Id));
+                        args.putInt("recipeId", recipe.Id);
                         Navigation.findNavController(v).navigate(R.id.action_profile_to_recipeDetails, args);
                     }
                 }));

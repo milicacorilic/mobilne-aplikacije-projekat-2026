@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         // opens first recipe from FakeData (recipeId = "1")
         view.findViewById(R.id.btnGoToRecipe).setOnClickListener(v -> {
             Bundle args = new Bundle();
-            args.putString("recipeId", "1");
+            args.putInt("recipeId", 1);
             Navigation.findNavController(v)
                     .navigate(R.id.action_home_to_recipeDetails, args);
         });
