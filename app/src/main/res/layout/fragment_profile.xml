@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/card_cream">
+    android:background="?attr/colorSurface">
 
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/ochre"
+        android:background="?attr/colorSecondary"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,10 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_menu"
-            app:navigationIconTint="@color/white"
             app:title="@string/profile_title"
-            app:titleCentered="true"
-            app:titleTextColor="@color/white" />
+            app:titleCentered="true" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -94,7 +92,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -155,7 +152,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -338,10 +334,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:contentDescription="@string/add_recipe"
-        app:backgroundTint="@color/burnt_sienna"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
-        app:srcCompat="@drawable/ic_add"
-        app:tint="@color/white" />
+        app:srcCompat="@drawable/ic_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>

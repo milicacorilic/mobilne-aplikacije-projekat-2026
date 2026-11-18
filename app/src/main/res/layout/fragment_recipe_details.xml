@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/card_cream">
+    android:background="?attr/colorSurface">
 
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/ochre"
+        android:background="?attr/colorSecondary"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +22,8 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationContentDescription="@string/back"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:navigationIconTint="@color/white"
             app:title="@string/top_bar_title"
-            app:titleCentered="true"
-            app:titleTextColor="@color/white" />
+            app:titleCentered="true" />
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -53,7 +51,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_max="600dp">
 
-                <!-- Glavna slika + srce -->
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
@@ -82,7 +79,7 @@
                             android:contentDescription="@string/favorite"
                             android:padding="8dp"
                             app:srcCompat="@drawable/ic_favorite_border"
-                            app:tint="@color/burnt_sienna" />
+                            app:tint="?attr/colorPrimary" />
                     </FrameLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -110,7 +107,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="14dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -187,7 +183,7 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:cardBackgroundColor="@color/ochre"
+                        app:cardBackgroundColor="?attr/colorSecondary"
                         app:cardCornerRadius="10dp"
                         app:cardElevation="0dp"
                         app:strokeWidth="0dp">
@@ -217,7 +213,7 @@
                     android:layout_marginTop="8dp"
                     android:orientation="vertical" />
 
-                <!-- Koraci -->
+                <!-- Steps -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

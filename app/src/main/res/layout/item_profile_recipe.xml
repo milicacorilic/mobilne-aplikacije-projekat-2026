@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="14dp"
     app:cardElevation="0dp"
     app:strokeWidth="0dp">
@@ -15,7 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Slika recepta (levo) -->
         <ImageView
             android:id="@+id/ivRecipe"
             android:layout_width="96dp"
@@ -23,7 +21,6 @@
             android:contentDescription="@null"
             android:scaleType="centerCrop" />
 
-        <!-- Tekst (desno) -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="96dp"
@@ -45,7 +42,6 @@
                 android:layout_marginTop="2dp"
                 android:textAppearance="@style/TextAppearance.App.Caption" />
 
-            <!-- Status levo, Edit desno -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

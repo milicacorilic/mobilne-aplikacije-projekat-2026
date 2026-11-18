@@ -4,13 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/card_cream">
+    android:background="?attr/colorSurface">
 
     <TextView
         android:id="@+id/tvTopBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/ochre"
+        android:background="?attr/colorSecondary"
         android:gravity="center"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
@@ -90,7 +90,7 @@
                         android:maxLines="1"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp"
-                        android:textColorHint="@color/ink"
+                        android:textColorHint="?attr/colorOnSurface"
                         android:textAppearance="@style/TextAppearance.App.Input" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +119,7 @@
                         android:maxLines="1"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp"
-                        android:textColorHint="@color/ink"
+                        android:textColorHint="?attr/colorOnSurface"
                         android:textAppearance="@style/TextAppearance.App.Input" />
                 </com.google.android.material.textfield.TextInputLayout>
 
