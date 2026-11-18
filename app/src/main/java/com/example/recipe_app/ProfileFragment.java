@@ -7,9 +7,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recipe_app.model.FakeData;
 import com.example.recipe_app.model.Recipe;
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,12 +29,8 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        applyStatusBarInset(view);
         fillFakeProfileData(view);
         setupRecipesList(view);
-
-        MaterialToolbar toolbar = view.findViewById(R.id.toolbar);
-        toolbar.setNavigationOnClickListener(v -> toast("TODO: menu"));
 
         MaterialButton btnEdit = view.findViewById(R.id.btnEditProfile);
         btnEdit.setOnClickListener(v -> toast("TODO: edit profile"));
@@ -47,14 +39,7 @@ public class ProfileFragment extends Fragment {
         fab.setOnClickListener(v -> toast("TODO: new recipe"));
     }
 
-    private void applyStatusBarInset(View root) {
-        View topBar = root.findViewById(R.id.topBar);
-        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            topBar.setPadding(0, bars.top, 0, 0);
-            return insets;
-        });
-    }
+
 
     private void fillFakeProfileData(View v) {
         setText(v, R.id.tvProfileName, "Pera Peric");

@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
             });
             popup.show();
         });
+        navController.addOnDestinationChangedListener((controller, destination, args) -> {
+            if (destination.getId() == R.id.homeFragment) {
+                toolbar.setTitle(R.string.toolbar_title);
+            } else {
+                toolbar.setTitle(destination.getLabel());   // label from nav_graph.xml
+            }
+        });
     }
 
     private void goTo(int destinationId) {
