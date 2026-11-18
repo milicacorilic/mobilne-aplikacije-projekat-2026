@@ -10,7 +10,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class Recipe {
-    public String Id;
+    public int Id;
     public String Name, Author;
     public ArrayList<RecipeStep> Steps;
     public MealType MealType;

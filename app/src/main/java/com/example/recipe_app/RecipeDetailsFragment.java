@@ -37,10 +37,9 @@ public class RecipeDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // 1. Uzmi ID prosleđen iz liste i učitaj recept
-        String recipeId = "-1";
+        int recipeId = -1;
         if (getArguments() != null) {
-            recipeId = getArguments().getString("recipeId", "-1");
+            recipeId = getArguments().getInt("recipeId", -1);
         }
         recipe = FakeData.getRecipeById(recipeId);
 
@@ -107,8 +106,8 @@ public class RecipeDetailsFragment extends Fragment {
             RecipeStep step = steps.get(i);
             View row = inflater.inflate(R.layout.item_recipe_step, container, false);
             ((TextView) row.findViewById(R.id.tvStepNumber)).setText(String.valueOf(i + 1));
-            ((TextView) row.findViewById(R.id.tvStepTitle)).setText(step.name);
-            ((TextView) row.findViewById(R.id.tvStepDescription)).setText(step.content);
+            ((TextView) row.findViewById(R.id.tvStepTitle)).setText(step.Name);
+            ((TextView) row.findViewById(R.id.tvStepDescription)).setText(step.Content);
             container.addView(row);
         }
     }

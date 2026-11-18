@@ -13,13 +13,13 @@ public class FakeData {
     public static List<Recipe> getRecipes() {
         List<Recipe> list = new ArrayList<>();
 
-        list.add(makeRecipe("1", "Chicken strips", "Pera Peric", 2, 45,
+        list.add(makeRecipe(1, "Chicken strips", "Pera Peric", 2, 45,
                 "chicken_strips", 4.5f,
                 "Golden, crunchy chicken with a tender middle. An easy homemade favorite for any day."));
-        list.add(makeRecipe("2", "French fries", "Pera Peric", 2, 20,
+        list.add(makeRecipe(2, "French fries", "Pera Peric", 2, 20,
                 "french_fries", 4.0f,
                 "Crispy on the outside, fluffy inside."));
-        list.add(makeRecipe("3", "Ramen", "Pera Peric", 2, 15,
+        list.add(makeRecipe(3, "Ramen", "Pera Peric", 2, 15,
                 "ramen", 4.8f,
                 "A warm bowl of comfort in fifteen minutes."));
 
@@ -31,14 +31,14 @@ public class FakeData {
     }
 
     // for later
-    public static Recipe getRecipeById(String id) {
+    public static Recipe getRecipeById(int id) {
         for (Recipe r : getRecipes()) {
-            if (r.Id.equals(id)) return r;
+            if (r.Id == id) return r;
         }
         return null;
     }
 
-    private static Recipe makeRecipe(String id, String name, String author, int portion, int time, String image, float rating, String story) {
+    private static Recipe makeRecipe(int id, String name, String author, int portion, int time, String image, float rating, String story) {
         Recipe r = new Recipe();
         r.Id = id;
         r.Name = name;
@@ -51,12 +51,10 @@ public class FakeData {
 
         r.Allergens = new ArrayList<>();
         r.AdditionalImagePaths = new ArrayList<>();
-        r.Ingredients = new ArrayList<>();        // enumi: popuni kad znaš konstante
+        r.Ingredients = new ArrayList<>();
         r.Steps = new ArrayList<>();
         return r;
     }
-
-    // ---------- KORACI ----------
 
     public static List<RecipeStep> getSteps() {
         List<RecipeStep> steps = new ArrayList<>();
