@@ -6,19 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorSurface">
 
-    <TextView
-        android:id="@+id/tvTopBar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorSecondary"
-        android:gravity="center"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:text="@string/top_bar_title"
-        android:textAppearance="@style/TextAppearance.App.TopBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
@@ -27,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTopBar">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -49,11 +49,6 @@ public class RecipeDetailsFragment extends Fragment {
             return;
         }
 
-        applyStatusBarInset(view);
-
-        MaterialToolbar toolbar = view.findViewById(R.id.toolbar);
-        toolbar.setNavigationOnClickListener(v ->
-                Navigation.findNavController(v).navigateUp());
 
         bindRecipe(view);
         fillIngredients(view);
@@ -63,14 +58,7 @@ public class RecipeDetailsFragment extends Fragment {
         view.findViewById(R.id.btnSaveRecipe).setOnClickListener(v -> toast("TODO: save recipe"));
     }
 
-    private void applyStatusBarInset(View root) {
-        View topBar = root.findViewById(R.id.topBar);
-        ViewCompat.setOnApplyWindowInsetsListener(root, (v, insets) -> {
-            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            topBar.setPadding(0, bars.top, 0, 0);
-            return insets;
-        });
-    }
+
 
     private void bindRecipe(View v) {
         UiUtils.loadImage((ImageView) v.findViewById(R.id.ivRecipeImage), recipe.ImagePath);
