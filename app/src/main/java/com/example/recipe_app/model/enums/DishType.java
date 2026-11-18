@@ -7,12 +7,12 @@ public enum DishType {
     PIZZA,
     SANDWICH,
     BURGER,
-    RIZOTTO,
+    RISOTTO,
     MEAT_DISH,
     FISH_DISH,
     VEGETABLE_DISH,
     BAKERY_PRODUCT,
-    COKKIE,
+    COOKIE,
     CAKE,
     PANCAKES
 }

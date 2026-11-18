@@ -1,10 +1,10 @@
 package com.example.recipe_app.model.enums;
 
 public enum DietType {
-    VEGETERIAN,
+    VEGETARIAN,
     VEGAN,
     LENT,
     REGULAR,
     CHRONO,
-    PESCATERIAN
+    PESCATARIAN
 }

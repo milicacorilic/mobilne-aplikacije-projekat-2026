@@ -9,10 +9,28 @@
 
     <!-- Neutral colors -->
     <color name="ink">#2B1A0E</color>
+    <color name="ink_muted">#5C3A1E</color>
     <color name="card_cream">#FFF8EA</color>
-    <color name="error_red">#B3261C</color>
     <color name="white">#FFFFFF</color>
 
-    <!-- Speciale -->
+    <!-- Surface containers (shades between white and dust) -->
+    <color name="surface_container_low">#FBF0D8</color>
+    <color name="surface_container">#F6EACB</color>
+    <color name="surface_container_high">#F0E0B8</color>
+    <color name="surface_container_highest">#EAD7A8</color>
+    <color name="outline_variant">#E0C890</color>
+
+    <!-- Tertiary / inverse -->
+    <color name="tertiary_container">#F5E0A8</color>
+    <color name="inverse_surface">#3D2A1A</color>
+    <color name="inverse_on_surface">#FFF3DE</color>
+    <color name="inverse_primary">#FFB68A</color>
+
+    <!-- Error -->
+    <color name="error_red">#B3261C</color>
+    <color name="error_container">#F9DEDC</color>
+    <color name="on_error_container">#410E0B</color>
+
+    <!-- Specials -->
     <color name="brand_ingredient">#6B2B08</color>
 </resources>

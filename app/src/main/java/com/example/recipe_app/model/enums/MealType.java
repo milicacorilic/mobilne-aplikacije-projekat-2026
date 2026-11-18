@@ -4,9 +4,9 @@ public enum MealType {
     BREAKFAST,
     LUNCH,
     DINNER,
-    MAIN_COURSE,
+    MAIN,
     APPETIZER,
     SALAD,
-    DESERT,
+    DESSERT,
     PIZZA
 }

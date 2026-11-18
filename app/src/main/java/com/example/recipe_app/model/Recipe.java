@@ -10,18 +10,20 @@ import java.sql.Time;
 import java.util.ArrayList;
 
 public class Recipe {
+    public int Id;
     public String Name, Author;
+    public ArrayList<RecipeStep> Steps;
     public MealType MealType;
     public DishType DishType;
     public DietType DietType;
     public ArrayList<Allergen> Allergens;
     public int Portion;
-    public Time PreparationTime;
+    public int PreparationTime; // minutes of preparation
     public String ImagePath;
     public float Rating;
     public ArrayList<String> AdditionalImagePaths;
     public String VideoPath;
-    public ArrayList<IngredientType> Ingredients;
+    public ArrayList<Ingredient> Ingredients;
     public String Origin;
     public String Story;
 
