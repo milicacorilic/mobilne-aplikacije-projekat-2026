@@ -88,4 +88,29 @@
     <string name="resend">Resend</string>
     <string name="reset_link_resent">Reset link sent again</string>
     <string name="use_different_email">Use a different email</string>
+    <!-- notifications -->
+    <string name="notifications_unread_count">%1$d unread</string>
+    <string name="notifications_filter_all">All</string>
+    <string name="notifications_filter_unread">Unread</string>
+    <string name="notifications_group_today">Today</string>
+    <string name="notifications_group_yesterday">Yesterday</string>
+    <string name="notifications_caught_up">You’re all caught up</string>
+    <string name="notifications_empty">No notifications yet</string>
+    <string name="notifications_empty_unread">No unread notifications</string>
+
+    <string name="notif_comment_title">A new comment on your recipe</string>
+    <string name="notif_comment_message">Mila: “These chicken strips are so good!”</string>
+    <string name="notif_comment_time">10 min ago</string>
+    <string name="notif_favorite_title">Your recipe is a favourite</string>
+    <string name="notif_favorite_message">Someone saved your Chicken strips.</string>
+    <string name="notif_favorite_time">45 min ago</string>
+    <string name="notif_live_title">Your recipe is live!</string>
+    <string name="notif_live_message">French fries is ready for everyone to try.</string>
+    <string name="notif_live_time">2 hours ago</string>
+    <string name="notif_rating_title">A little love for your cooking</string>
+    <string name="notif_rating_message">Your Ramen recipe received a 5-star rating.</string>
+    <string name="notif_rating_time">Yesterday · 6:30 PM</string>
+    <string name="notif_suggestion_title">Something delicious to try</string>
+    <string name="notif_suggestion_message">Find a new favourite for tonight’s dinner.</string>
+    <string name="notif_suggestion_time">Yesterday · 11:00 AM</string>
 </resources>

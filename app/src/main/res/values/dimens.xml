@@ -32,4 +32,10 @@
 
     <!-- Grid columns -->
     <integer name="recipe_grid_columns">1</integer>
+
+    <!-- Notifications -->
+    <dimen name="notification_card_spacing">12dp</dimen>
+    <dimen name="notification_icon_tile_size">40dp</dimen>
+    <dimen name="notification_unread_dot_size">8dp</dimen>
+    <dimen name="notification_text_message">14sp</dimen>
 </resources>

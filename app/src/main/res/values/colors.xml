@@ -33,4 +33,10 @@
 
     <!-- Specials -->
     <color name="brand_ingredient">#6B2B08</color>
+
+    <!-- Notifications -->
+    <color name="notification_card_unread">@color/white</color>
+    <color name="notification_card_read">@color/dust</color>
+    <color name="notification_icon_tile">@color/amber_sky</color>
+    <color name="notification_unread_dot">@color/burnt_sienna</color>
 </resources>

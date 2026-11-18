@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardNotification"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/screen_padding"
+    android:layout_marginBottom="@dimen/notification_card_spacing"
+    app:cardBackgroundColor="@color/notification_card_unread"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="0dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_m">
+
+        <FrameLayout
+            android:id="@+id/iconTile"
+            android:layout_width="@dimen/notification_icon_tile_size"
+            android:layout_height="@dimen/notification_icon_tile_size"
+            android:background="@drawable/bg_notification_icon_tile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgIcon"
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                app:tint="@color/burnt_sienna"
+                tools:src="@drawable/ic_comment" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_m"
+            android:layout_marginEnd="@dimen/spacing_s"
+            android:textColor="@color/ink"
+            android:textSize="@dimen/text_body"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/viewUnreadDot"
+            app:layout_constraintStart_toEndOf="@id/iconTile"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="A new comment on your recipe" />
+
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/burnt_sienna"
+            android:textSize="@dimen/notification_text_message"
+            app:layout_constraintEnd_toEndOf="@id/txtTitle"
+            app:layout_constraintStart_toStartOf="@id/txtTitle"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            tools:text="Mila: These chicken strips are so good!" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textColor="@color/burnt_sienna"
+            android:textSize="@dimen/text_caption"
+            app:layout_constraintEnd_toEndOf="@id/txtTitle"
+            app:layout_constraintStart_toStartOf="@id/txtTitle"
+            app:layout_constraintTop_toBottomOf="@id/txtMessage"
+            tools:text="10 min ago" />
+
+        <View
+            android:id="@+id/viewUnreadDot"
+            android:layout_width="@dimen/notification_unread_dot_size"
+            android:layout_height="@dimen/notification_unread_dot_size"
+            android:layout_marginTop="@dimen/spacing_s"
+            android:background="@drawable/bg_notification_unread_dot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
