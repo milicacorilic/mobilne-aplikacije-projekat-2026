@@ -7,7 +7,6 @@
     <string name="nav_favs">Favs</string>
     <string name="nav_profile">Profile</string>
     <string name="notifications">Notifications</string>
-    <string name="add_recipe">Add recipe</string>
 
     <string name="home_title">What are we\ncooking today?</string>
     <string name="search_hint">Search recipes…</string>
@@ -21,7 +20,6 @@
     <string name="sec_latest_sub">Fresh inspiration for your next meal</string>
     <string name="sec_favorites">Favorites</string>
     <string name="sec_favorites_sub">Saved for a delicious day</string>
-    <string name="app_name">Recipe app</string>
 
     <!-- login -->
     <string name="top_bar_title">RECIPE APP</string>

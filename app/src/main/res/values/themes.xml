@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Recipe_App" parent="Theme.Material3.Light.NoActionBar">
-
-    <style name="Theme.Recipe_App" parent="android:Theme.Material.Light.NoActionBar" />
-        <item name="colorSecondary">@color/ochre</item>
-        <item name="colorOnSecondary">@color/white</item>
-        <item name="colorSecondaryContainer">@color/dust</item>
-        <item name="colorOnSecondaryContainer">@color/burnt_sienna</item>
-
-        <item name="colorTertiary">@color/golden_grass</item>
-        <item name="colorOnTertiary">@color/ink</item>
-
-        <item name="android:colorBackground">@color/card_cream</item>
-        <item name="colorOnBackground">@color/ink</item>
-        <item name="colorSurface">@color/card_cream</item>
-        <item name="colorOnSurface">@color/ink</item>
-        <item name="colorOutline">@color/ochre</item>
-
-        <item name="colorError">@color/error_red</item>
-        <item name="colorOnError">@color/white</item>
-
-        <item name="android:statusBarColor">@color/ochre</item>
-    </style>
-
-    <style name="FabCircle" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-</resources>
         <item name="colorPrimary">@color/burnt_sienna</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorPrimaryContainer">@color/amber_sky</item>
@@ -74,5 +47,10 @@
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+    </style>
+
+    <style name="FabCircle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>
