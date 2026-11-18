@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.recipe_app.HomeFragment"
-        android:label="Home"
+        android:name="com.example.recipe_app.ui.home.HomeFragment"
+        android:label="@string/nav_home"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_home_to_login"
@@ -22,20 +22,40 @@
     </fragment>
 
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.recipe_app.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/searchFragment"
+        android:name="com.example.recipe_app.ui.common.Placeholder"
+        android:label="@string/nav_search" />
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.recipe_app.ui.common.Placeholder"
+        android:label="@string/nav_favs" />
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.recipe_app.ProfileFragment"
-        android:label="Profile"
+        android:label="@string/nav_profile"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profile_to_recipeDetails"
             app:destination="@id/recipeDetailsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.recipe_app.ui.common.Placeholder"
+        android:label="@string/notifications" />
+
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.recipe_app.ui.common.Placeholder"
+        android:label="@string/add_recipe" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.recipe_app.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
 
     <fragment
         android:id="@+id/recipeDetailsFragment"
