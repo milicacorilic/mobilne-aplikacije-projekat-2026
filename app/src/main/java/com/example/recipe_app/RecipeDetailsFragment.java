@@ -55,7 +55,6 @@ public class RecipeDetailsFragment extends Fragment {
         fillSteps(view);
 
         view.findViewById(R.id.ivFavorite).setOnClickListener(v -> toast("TODO: favorites"));
-        view.findViewById(R.id.btnSaveRecipe).setOnClickListener(v -> toast("TODO: save recipe"));
     }
 
 
@@ -68,7 +67,6 @@ public class RecipeDetailsFragment extends Fragment {
         setText(v, R.id.tvStory, recipe.Story);
 
         setText(v, R.id.tvStatTotal, String.valueOf(recipe.PreparationTime));
-        setText(v, R.id.tvStatServings, String.valueOf(recipe.Portion));
         setText(v, R.id.tvStatRating, String.format(Locale.US, "%.1f", recipe.Rating));
 
         setText(v, R.id.tvServes, "Serves " + recipe.Portion);

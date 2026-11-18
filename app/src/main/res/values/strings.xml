@@ -65,4 +65,27 @@
     <string name="stat_rating">Rating</string>
     <string name="back">Back</string>
     <string name="favorite">Favorite</string>
+    <string name="meal_type_mains">Mains</string>
+    <string name="stat_diet_type">Diet type</string>
+    <string name="diet_regular">Regular</string>
+    <string name="stat_origin">Origin</string>
+    <string name="origin_american">American</string>
+    <string name="stat_allergens">Allergens</string>
+    <string name="allergens_none">None</string>
+
+    <!-- forgot password -->
+    <string name="forgot_eyebrow">PASSWORD RESET</string>
+    <string name="forgot_title">Forgot your password?</string>
+    <string name="forgot_subtitle">No worries! Enter the email linked to your account and we\'ll send you a link to reset your password.</string>
+    <string name="send_reset_link">Send reset link</string>
+    <string name="remembered_password">Remembered it?</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="forgot_success_eyebrow">EMAIL SENT</string>
+    <string name="forgot_success_title">Check your inbox</string>
+    <string name="forgot_success_body">We sent a password reset link to %1$s. Open the email and follow the link to choose a new password.</string>
+    <string name="back_to_login">Back to log in</string>
+    <string name="didnt_get_email">Didn\'t get the email?</string>
+    <string name="resend">Resend</string>
+    <string name="reset_link_resent">Reset link sent again</string>
+    <string name="use_different_email">Use a different email</string>
 </resources>
