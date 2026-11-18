@@ -1,4 +1,26 @@
 <resources>
+    <string name="app_name">Recipe_App</string>
+    <string name="toolbar_title">RECIPE APP</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_favs">Favs</string>
+    <string name="nav_profile">Profile</string>
+    <string name="notifications">Notifications</string>
+    <string name="add_recipe">Add recipe</string>
+
+    <string name="home_title">What are we\ncooking today?</string>
+    <string name="search_hint">Search recipes…</string>
+    <string name="categories">Categories</string>
+    <string name="cat_salads">Salads</string>
+    <string name="cat_soups">Soups</string>
+    <string name="cat_deserts">Deserts</string>
+    <string name="cat_pizza">Pizza</string>
+
+    <string name="sec_latest">Latest recipes</string>
+    <string name="sec_latest_sub">Fresh inspiration for your next meal</string>
+    <string name="sec_favorites">Favorites</string>
+    <string name="sec_favorites_sub">Saved for a delicious day</string>
     <string name="app_name">Recipe app</string>
 
     <!-- login -->
