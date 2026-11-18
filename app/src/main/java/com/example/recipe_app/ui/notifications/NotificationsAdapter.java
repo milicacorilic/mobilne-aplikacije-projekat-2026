@@ -23,6 +23,9 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     private static final int VIEW_TYPE_HEADER = 0;
     private static final int VIEW_TYPE_ITEM = 1;
+    private static final int VIEW_TYPE_FOOTER = 2;
+
+    private static final Object FOOTER_MARKER = new Object();
 
     public interface OnNotificationClickListener {
         void onNotificationClick(Notification notification);
@@ -45,6 +48,9 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
             }
             items.add(notification);
         }
+        if (!notifications.isEmpty()) {
+            items.add(FOOTER_MARKER);
+        }
         notifyDataSetChanged();
     }
 
@@ -55,7 +61,13 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public int getItemViewType(int position) {
-        return items.get(position) instanceof Integer ? VIEW_TYPE_HEADER : VIEW_TYPE_ITEM;
+        Object item = items.get(position);
+        if (item instanceof Integer) {
+            return VIEW_TYPE_HEADER;
+        } else if (item == FOOTER_MARKER) {
+            return VIEW_TYPE_FOOTER;
+        }
+        return VIEW_TYPE_ITEM;
     }
 
     @NonNull
@@ -65,6 +77,9 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
         if (viewType == VIEW_TYPE_HEADER) {
             View view = inflater.inflate(R.layout.item_notification_header, parent, false);
             return new HeaderViewHolder(view);
+        } else if (viewType == VIEW_TYPE_FOOTER) {
+            View view = inflater.inflate(R.layout.item_notification_footer, parent, false);
+            return new FooterViewHolder(view);
         }
         View view = inflater.inflate(R.layout.item_notification, parent, false);
         return new NotificationViewHolder(view);
@@ -96,6 +111,12 @@ public class NotificationsAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         void bind(@StringRes int headerRes) {
             txtHeader.setText(headerRes);
+        }
+    }
+
+    static class FooterViewHolder extends RecyclerView.ViewHolder {
+        FooterViewHolder(@NonNull View itemView) {
+            super(itemView);
         }
     }
 
