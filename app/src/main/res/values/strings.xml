@@ -45,4 +45,11 @@
     <string name="stat_rating">Rating</string>
     <string name="back">Back</string>
     <string name="favorite">Favorite</string>
+    <string name="meal_type_mains">Mains</string>
+    <string name="stat_diet_type">Diet type</string>
+    <string name="diet_regular">Regular</string>
+    <string name="stat_origin">Origin</string>
+    <string name="origin_american">American</string>
+    <string name="stat_allergens">Allergens</string>
+    <string name="allergens_none">None</string>
 </resources>

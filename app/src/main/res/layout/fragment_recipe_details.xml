@@ -84,10 +84,21 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
+                    android:id="@+id/tvMealType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:letterSpacing="0.12"
+                    android:text="@string/meal_type_mains"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.App.Label"
+                    android:textColor="?attr/colorPrimary" />
+
+                <TextView
                     android:id="@+id/tvRecipeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="4dp" />
 
                 <TextView
                     android:id="@+id/tvAuthor"
@@ -125,7 +136,9 @@
                             <TextView
                                 android:id="@+id/tvStatTotal"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -139,13 +152,16 @@
                             android:layout_weight="1"
                             android:orientation="vertical">
                             <TextView
-                                android:id="@+id/tvStatServings"
+                                android:id="@+id/tvStatDiet"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/diet_regular" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/stat_servings"
+                                android:text="@string/stat_diet_type"
                                 android:textAppearance="@style/TextAppearance.App.Caption" />
                         </LinearLayout>
 
@@ -157,13 +173,63 @@
                             <TextView
                                 android:id="@+id/tvStatRating"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/stat_rating"
                                 android:textAppearance="@style/TextAppearance.App.Caption" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tvStatOrigin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/origin_american" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stat_origin"
+                                android:textAppearance="@style/TextAppearance.App.Caption" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tvAllergens"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/allergens_none" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/stat_allergens"
+                            android:textAppearance="@style/TextAppearance.App.Caption" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -226,14 +292,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnSaveRecipe"
-                    style="@style/Widget.App.Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/save_recipe" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
