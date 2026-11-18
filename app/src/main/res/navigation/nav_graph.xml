@@ -43,8 +43,9 @@
 
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="com.example.recipe_app.ui.common.Placeholder"
-        android:label="@string/notifications" />
+        android:name="com.example.recipe_app.ui.notifications.NotificationsFragment"
+        android:label="@string/notifications"
+        tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/addRecipeFragment"
