@@ -2,6 +2,11 @@ package com.example.recipe_app.model;
 
 import com.example.recipe_app.model.Recipe;
 import com.example.recipe_app.model.RecipeStep;
+import com.example.recipe_app.model.enums.Allergen;
+import com.example.recipe_app.model.enums.DietType;
+import com.example.recipe_app.model.enums.DishType;
+import com.example.recipe_app.model.enums.MealType;
+import com.example.recipe_app.model.enums.PrepMethod;
 
 import java.sql.Time;
 import java.util.ArrayList;
@@ -13,20 +18,48 @@ public class FakeData {
     public static List<Recipe> getRecipes() {
         List<Recipe> list = new ArrayList<>();
 
-        list.add(makeRecipe(1, "Chicken strips", "Pera Peric", 2, 45,
-                "chicken_strips", 4.5f,
-                "Golden, crunchy chicken with a tender middle. An easy homemade favorite for any day."));
-        list.add(makeRecipe(2, "French fries", "Pera Peric", 2, 20,
-                "french_fries", 4.0f,
-                "Crispy on the outside, fluffy inside."));
-        list.add(makeRecipe(3, "Ramen", "Pera Peric", 2, 15,
-                "ramen", 4.8f,
-                "A warm bowl of comfort in fifteen minutes."));
+        list.add(makeRecipe(1, "Chicken strips", "Pera Peric", 2, 45, "chicken_strips", 4.5f,
+                "Golden, crunchy chicken with a tender middle.",
+                DishType.MEAT_DISH, MealType.MAIN, DietType.REGULAR, PrepMethod.BAKING,
+                new Allergen[]{Allergen.GLUTEN}));
+        list.add(makeRecipe(2, "French fries", "Pera Peric", 2, 20, "french_fries", 4.0f,
+                "Crispy on the outside, fluffy inside.",
+                DishType.VEGETABLE_DISH, MealType.APPETIZER, DietType.VEGAN, PrepMethod.FRYING,
+                new Allergen[]{}));
+        list.add(makeRecipe(3, "Ramen", "Pera Peric", 2, 15, "ramen", 4.8f,
+                "A warm bowl of comfort in fifteen minutes.",
+                DishType.SOUP, MealType.MAIN, DietType.REGULAR, PrepMethod.BOILING,
+                new Allergen[]{Allergen.GLUTEN}));
+        list.add(makeRecipe(4, "Greek salad", "Pera Peric", 2, 10, "greek_salad", 4.3f,
+                "Fresh and simple.",
+                DishType.VEGETABLE_DISH, MealType.SALAD, DietType.VEGETARIAN, PrepMethod.NO_COOK,
+                new Allergen[]{Allergen.LACTOSE}));
+        list.add(makeRecipe(5, "Tomato soup", "Pera Peric", 4, 30, "tomato_soup", 4.2f,
+                "Slow-simmered comfort.",
+                DishType.SOUP, MealType.APPETIZER, DietType.VEGETARIAN, PrepMethod.BOILING,
+                new Allergen[]{Allergen.LACTOSE}));
+        list.add(makeRecipe(6, "Grilled salmon", "Pera Peric", 2, 25, "grilled_salmon", 4.7f,
+                "Light and smoky.",
+                DishType.FISH_DISH, MealType.MAIN, DietType.PESCATARIAN, PrepMethod.GRILLING,
+                new Allergen[]{}));
+        list.add(makeRecipe(7, "Pancakes", "Pera Peric", 4, 30, "pancakes", 4.1f,
+                "Weekend breakfast staple.",
+                DishType.PANCAKES, MealType.BREAKFAST, DietType.VEGETARIAN, PrepMethod.FRYING,
+                new Allergen[]{Allergen.GLUTEN, Allergen.LACTOSE}));
+        list.add(makeRecipe(8, "Pasta carbonara", "Pera Peric", 2, 30, "pasta_carbonara", 4.6f,
+                "Roman classic.",
+                DishType.PASTA, MealType.MAIN, DietType.REGULAR, PrepMethod.BOILING,
+                new Allergen[]{Allergen.GLUTEN, Allergen.LACTOSE}));
+        list.add(makeRecipe(9, "Vegan buddha bowl", "Pera Peric", 2, 15, "buddha_bowl", 4.4f,
+                "Colourful and filling.",
+                DishType.VEGETABLE_DISH, MealType.LUNCH, DietType.VEGAN, PrepMethod.NO_COOK,
+                new Allergen[]{Allergen.NUTS}));
+        list.add(makeRecipe(10, "Chocolate cake", "Pera Peric", 8, 60, "chocolate_cake", 4.9f,
+                "Rich and moist.",
+                DishType.CAKE, MealType.DESSERT, DietType.VEGETARIAN, PrepMethod.BAKING,
+                new Allergen[]{Allergen.GLUTEN, Allergen.LACTOSE}));
 
-        // same steps for all recipes
-        for (Recipe r : list) {
-            r.Steps.addAll(getSteps());
-        }
+        for (Recipe r : list) r.Steps.addAll(getSteps());
         return list;
     }
 
@@ -38,7 +71,10 @@ public class FakeData {
         return null;
     }
 
-    private static Recipe makeRecipe(int id, String name, String author, int portion, int time, String image, float rating, String story) {
+    private static Recipe makeRecipe(int id, String name, String author, int portion, int time,
+                                     String image, float rating, String story,
+                                     DishType dish, MealType meal, DietType diet,
+                                     PrepMethod method, Allergen[] allergens) {
         Recipe r = new Recipe();
         r.Id = id;
         r.Name = name;
@@ -48,8 +84,11 @@ public class FakeData {
         r.ImagePath = image;
         r.Rating = rating;
         r.Story = story;
-
-        r.Allergens = new ArrayList<>();
+        r.DishType = dish;
+        r.MealType = meal;
+        r.DietType = diet;
+        r.PrepMethod = method;
+        r.Allergens = new ArrayList<>(Arrays.asList(allergens));
         r.AdditionalImagePaths = new ArrayList<>();
         r.Ingredients = new ArrayList<>();
         r.Steps = new ArrayList<>();
