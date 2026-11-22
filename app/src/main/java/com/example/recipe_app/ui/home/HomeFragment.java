@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.recipe_app.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.List;
@@ -39,13 +38,13 @@ public class HomeFragment extends Fragment {
         HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
 
         // Pretraga
-        EditText search = view.findViewById(R.id.etSearch);
-        search.setOnEditorActionListener((tv, actionId, event) -> {
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                NavHostFragment.findNavController(this).navigate(R.id.searchFragment);
-                return true;
-            }
-            return false;
+        MaterialCardView searchCard = view.findViewById(R.id.cardHomeSearch);
+        searchCard.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("focus_search", true);
+
+            // Navigate to Search tab
+            NavHostFragment.findNavController(this).navigate(R.id.searchFragment, bundle);
         });
 
         // Kategorije -> pretraga

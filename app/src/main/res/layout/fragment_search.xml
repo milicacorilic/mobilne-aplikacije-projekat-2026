@@ -26,6 +26,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
+    <!-- Search Bar and Filters Button Row -->
+    <LinearLayout
+        android:id="@+id/searchBarRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_m"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSubtitle">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.App.TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/spacing_s"
+            app:hintEnabled="false"
+            app:startIconDrawable="@drawable/ic_search"
+            app:startIconTint="@color/burnt_sienna">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/searchInput"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonFilters"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:text="@string/filters_button"
+            android:textColor="@color/burnt_sienna"
+            app:strokeColor="@color/burnt_sienna" />
+    </LinearLayout>
+
+    <!-- Rest of the layout remains the same... -->
     <TextView
         android:id="@+id/textListTitle"
         style="@style/TextAppearance.App.Label"
@@ -35,7 +81,7 @@
         android:text="@string/all_recipes_title"
         android:textSize="@dimen/text_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textSubtitle" />
+        app:layout_constraintTop_toBottomOf="@id/searchBarRow" />
 
     <TextView
         android:id="@+id/textRecipeCount"
@@ -55,6 +101,6 @@
         android:paddingBottom="@dimen/spacing_m"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textListTitle"
-        tools:listitem="@layout/item_recipe_card" />
+        tools:listitem="@layout/item_search_recipe_card" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
