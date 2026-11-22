@@ -3,10 +3,9 @@ package com.example.recipe_app.model;
 import com.example.recipe_app.model.enums.Allergen;
 import com.example.recipe_app.model.enums.DietType;
 import com.example.recipe_app.model.enums.DishType;
-import com.example.recipe_app.model.enums.IngredientType;
 import com.example.recipe_app.model.enums.MealType;
+import com.example.recipe_app.model.enums.PrepMethod;
 
-import java.sql.Time;
 import java.util.ArrayList;
 
 public class Recipe {
@@ -16,6 +15,7 @@ public class Recipe {
     public MealType MealType;
     public DishType DishType;
     public DietType DietType;
+    public PrepMethod PrepMethod;
     public ArrayList<Allergen> Allergens;
     public int Portion;
     public int PreparationTime; // minutes of preparation

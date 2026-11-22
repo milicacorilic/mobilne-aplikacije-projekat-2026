@@ -6,10 +6,12 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.recipe_app.ui.search.SearchViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -17,6 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
     private NavController navController;
+    private SearchViewModel searchViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +30,17 @@ public class MainActivity extends AppCompatActivity {
                 .findFragmentById(R.id.nav_host_fragment);
         navController = host.getNavController();
 
+        searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
+
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
 
         NavigationUI.setupWithNavController(bottomNav, navController);
 
         bottomNav.setOnItemSelectedListener(item -> {
+            // Reset search state when navigating away from Search tab
+            if (item.getItemId() != R.id.searchFragment) {
+                searchViewModel.clearAll();
+            }
             goTo(item.getItemId());
             return true;
         });

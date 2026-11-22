@@ -113,4 +113,20 @@
     <string name="notif_suggestion_title">Something delicious to try</string>
     <string name="notif_suggestion_message">Find a new favourite for tonight’s dinner.</string>
     <string name="notif_suggestion_time">Yesterday · 11:00 AM</string>
+
+    <!-- search -->
+    <string name="recipe_view_details">View recipe</string>
+    <string name="recipe_image_desc">Image of %1$s</string>
+    <string name="search_title">Search recipes</string>
+    <string name="search_subtitle">Find something delicious to cook.</string>
+    <string name="all_recipes_title">All recipes</string>
+    <string name="prep_time_minutes">%1$d min</string>
+    <string name="filters_button">Filters ›</string>
+    <string name="filters_button_active">Filters · %1$d</string>
+    <string name="matching_recipes_title">Matching recipes</string>
+
+    <plurals name="recipe_count">
+        <item quantity="one">%d recipe</item>
+        <item quantity="other">%d recipes</item>
+    </plurals>
 </resources>
