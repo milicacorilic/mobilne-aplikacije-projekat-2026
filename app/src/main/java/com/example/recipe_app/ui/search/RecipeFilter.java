@@ -13,7 +13,6 @@ public class RecipeFilter {
     public static final int DEFAULT_MIN_TIME = 10;
     public static final int DEFAULT_MAX_TIME = 120;
 
-    // EnumSet guarantees stable iteration order (useful for chips in Step 9)
     public Set<DishType> dishTypes = EnumSet.noneOf(DishType.class);
     public Set<DietType> dietTypes = EnumSet.noneOf(DietType.class);
     public Set<MealType> mealTypes = EnumSet.noneOf(MealType.class);

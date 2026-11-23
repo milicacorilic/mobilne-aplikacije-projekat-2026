@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +46,20 @@ public class SearchFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
 
+        // Open Filters Screen (with double-tap guard and keyboard hide)
+        view.findViewById(R.id.buttonFilters).setOnClickListener(v -> {
+            if (Navigation.findNavController(v).getCurrentDestination().getId() == R.id.searchFragment) {
+                // Hide keyboard
+                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
+                }
+                searchInput.clearFocus();
+
+                Navigation.findNavController(v).navigate(R.id.action_search_to_filters);
+            }
+        });
+
         // Observe filtered results
         viewModel.getFilteredRecipes().observe(getViewLifecycleOwner(), recipes -> {
             adapter.setRecipes(recipes);
@@ -71,7 +86,6 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        // Handle the keyboard "Search" action to hide the keyboard
         searchInput.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -84,7 +98,6 @@ public class SearchFragment extends Fragment {
             return false;
         });
 
-        // NEW: Check if we arrived here from the Home screen search bar
         if (getArguments() != null && getArguments().getBoolean("focus_search", false)) {
             searchInput.post(() -> {
                 searchInput.requestFocus();

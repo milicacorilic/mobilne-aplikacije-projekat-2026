@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textTitle" />
 
-    <!-- Search Bar and Filters Button Row -->
+    <!-- Search bar and filters button row -->
     <LinearLayout
         android:id="@+id/searchBarRow"
         android:layout_width="0dp"
@@ -71,7 +71,6 @@
             app:strokeColor="@color/burnt_sienna" />
     </LinearLayout>
 
-    <!-- Rest of the layout remains the same... -->
     <TextView
         android:id="@+id/textListTitle"
         style="@style/TextAppearance.App.Label"

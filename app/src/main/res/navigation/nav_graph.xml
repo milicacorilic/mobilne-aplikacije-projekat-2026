@@ -28,7 +28,18 @@
         android:id="@+id/searchFragment"
         android:name="com.example.recipe_app.ui.search.SearchFragment"
         android:label="@string/nav_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_search_to_filters"
+            app:destination="@id/filtersFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filtersFragment"
+        android:name="com.example.recipe_app.ui.search.FiltersFragment"
+        android:label="@string/filters_title"
+        tools:layout="@layout/fragment_filters" />
 
     <fragment
         android:id="@+id/favoritesFragment"

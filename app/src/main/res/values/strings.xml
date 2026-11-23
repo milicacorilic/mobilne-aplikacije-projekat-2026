@@ -129,4 +129,20 @@
         <item quantity="one">%d recipe</item>
         <item quantity="other">%d recipes</item>
     </plurals>
+    <!-- search-filters -->
+    <string name="filters_title">Filters</string>
+    <string name="filters_clear_all">Clear all</string>
+    <string name="filters_intro_title">Find your next favourite</string>
+    <string name="filters_intro_helper">Combine groups and choose multiple options. Leave a group empty to include all.</string>
+    <string name="filters_close_desc">Close</string>
+
+    <!-- Changed from <string> to <plurals> -->
+    <plurals name="filters_show_button">
+        <item quantity="one">Show %1$d recipe</item>
+        <item quantity="other">Show %1$d recipes</item>
+    </plurals>
+    <plurals name="filters_groups_selected">
+        <item quantity="one">%1$d filter group selected</item>
+        <item quantity="other">%1$d filter groups selected</item>
+    </plurals>
 </resources>

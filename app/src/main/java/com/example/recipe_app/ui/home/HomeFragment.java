@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putBoolean("focus_search", true);
 
-            // Navigate to Search tab
             NavHostFragment.findNavController(this).navigate(R.id.searchFragment, bundle);
         });
 

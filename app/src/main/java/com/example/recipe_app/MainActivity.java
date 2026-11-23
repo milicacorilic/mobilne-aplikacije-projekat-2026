@@ -1,11 +1,10 @@
 package com.example.recipe_app;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.PopupMenu;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,7 +13,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.recipe_app.ui.search.SearchViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,52 +35,41 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
 
         bottomNav.setOnItemSelectedListener(item -> {
-            // Reset search state when navigating away from Search tab
-            if (item.getItemId() != R.id.searchFragment) {
-                searchViewModel.clearAll();
-            }
             goTo(item.getItemId());
             return true;
         });
         bottomNav.setOnItemReselectedListener(item -> goTo(item.getItemId()));
 
-        // Bocni meni
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navView = findViewById(R.id.nav_view);
-
+        // Hamburger
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setNavigationOnClickListener(v -> drawer.openDrawer(GravityCompat.START));
-
-        navView.setNavigationItemSelectedListener(item -> {
-            drawer.closeDrawer(GravityCompat.START);
-            goTo(item.getItemId());
-            return true;
-        });
-
-        OnBackPressedCallback closeDrawerOnBack = new OnBackPressedCallback(false) {
-            @Override
-            public void handleOnBackPressed() {
-                drawer.closeDrawer(GravityCompat.START);
-            }
-        };
-        getOnBackPressedDispatcher().addCallback(this, closeDrawerOnBack);
-        drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerOpened(android.view.View drawerView) {
-                closeDrawerOnBack.setEnabled(true);
-            }
-
-            @Override
-            public void onDrawerClosed(android.view.View drawerView) {
-                closeDrawerOnBack.setEnabled(false);
-            }
+        toolbar.setNavigationOnClickListener(v -> {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.getMenuInflater().inflate(R.menu.top_menu, popup.getMenu());
+            popup.setOnMenuItemClickListener(item -> {
+                goTo(item.getItemId());
+                return true;
+            });
+            popup.show();
         });
 
         navController.addOnDestinationChangedListener((controller, destination, args) -> {
-            if (destination.getId() == R.id.homeFragment) {
+            int destId = destination.getId();
+
+            // Manage toolbar titles
+            if (destId == R.id.homeFragment) {
                 toolbar.setTitle(R.string.toolbar_title);
             } else {
                 toolbar.setTitle(destination.getLabel());
+            }
+
+            // Hide/show bars on filters screen
+            boolean isFilters = destId == R.id.filtersFragment;
+            findViewById(R.id.appBar).setVisibility(isFilters ? View.GONE : View.VISIBLE);
+            findViewById(R.id.bottom_nav).setVisibility(isFilters ? View.GONE : View.VISIBLE);
+
+            // Search reset
+            if (destId != R.id.searchFragment && destId != R.id.filtersFragment) {
+                searchViewModel.clearAll();
             }
         });
     }
