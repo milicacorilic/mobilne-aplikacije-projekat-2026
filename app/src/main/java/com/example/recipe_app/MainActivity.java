@@ -1,6 +1,7 @@
 package com.example.recipe_app;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,20 +34,21 @@ public class MainActivity extends AppCompatActivity {
         searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
-
         NavigationUI.setupWithNavController(bottomNav, navController);
 
         bottomNav.setOnItemSelectedListener(item -> {
-            // Reset search state when navigating away from Search tab
-            if (item.getItemId() != R.id.searchFragment) {
-                searchViewModel.clearAll();
-            }
             goTo(item.getItemId());
             return true;
         });
-        bottomNav.setOnItemReselectedListener(item -> goTo(item.getItemId()));
 
-        // Bocni meni
+        bottomNav.setOnItemReselectedListener(item -> {
+            if (item.getItemId() == R.id.searchFragment) {
+                searchViewModel.clearAll();
+            }
+            goTo(item.getItemId());
+        });
+
+        // Bocni meni (Teammate's Drawer)
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
 
@@ -68,21 +70,34 @@ public class MainActivity extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, closeDrawerOnBack);
         drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
-            public void onDrawerOpened(android.view.View drawerView) {
+            public void onDrawerOpened(View drawerView) {
                 closeDrawerOnBack.setEnabled(true);
             }
 
             @Override
-            public void onDrawerClosed(android.view.View drawerView) {
+            public void onDrawerClosed(View drawerView) {
                 closeDrawerOnBack.setEnabled(false);
             }
         });
 
         navController.addOnDestinationChangedListener((controller, destination, args) -> {
-            if (destination.getId() == R.id.homeFragment) {
+            int destId = destination.getId();
+
+            // Manage toolbar titles
+            if (destId == R.id.homeFragment) {
                 toolbar.setTitle(R.string.toolbar_title);
             } else {
                 toolbar.setTitle(destination.getLabel());
+            }
+
+            // Hide/show bars on filters screen
+            boolean isFilters = destId == R.id.filtersFragment;
+            findViewById(R.id.appBar).setVisibility(isFilters ? View.GONE : View.VISIBLE);
+            findViewById(R.id.bottom_nav).setVisibility(isFilters ? View.GONE : View.VISIBLE);
+
+            // Centralized Search Reset (When navigating to other tabs)
+            if (destId != R.id.searchFragment && destId != R.id.filtersFragment) {
+                searchViewModel.clearAll();
             }
         });
     }

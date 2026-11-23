@@ -129,4 +129,41 @@
         <item quantity="one">%d recipe</item>
         <item quantity="other">%d recipes</item>
     </plurals>
+    <!-- search-filters -->
+    <string name="filters_title">Filters</string>
+    <string name="filters_clear_all">Clear all</string>
+    <string name="filters_intro_title">Find your next favourite</string>
+    <string name="filters_intro_helper">Combine groups and choose multiple options. Leave a group empty to include all.</string>
+    <string name="filters_close_desc">Close</string>
+
+    <plurals name="filters_show_button">
+        <item quantity="one">Show %1$d recipe</item>
+        <item quantity="other">Show %1$d recipes</item>
+    </plurals>
+    <plurals name="filters_groups_selected">
+        <item quantity="one">%1$d filter group selected</item>
+        <item quantity="other">%1$d filter groups selected</item>
+    </plurals>
+    <string name="filters_dish_type_title">Dish type</string>
+    <string name="filters_dish_type_helper">Select one or more dish types.</string>
+    <string name="filters_diet_title">Diet type</string>
+    <string name="filters_diet_helper">Select one or more diets.</string>
+    <string name="filters_meal_title">Meal</string>
+    <string name="filters_meal_helper">Select one or more meals.</string>
+    <string name="filters_method_title">Prep method</string>
+    <string name="filters_method_helper">Select one or more prep methods.</string>
+    <string name="filters_allergens_title">Allergens</string>
+    <string name="filters_allergens_helper">Hide recipes containing any of these.</string>
+    <string name="filters_time_title">Prep time</string>
+    <string name="filters_time_helper">Select a time range.</string>
+    <string name="filters_time_any">Any time</string>
+    <string name="remove_filter">Remove %1$s filter</string>
+    <string name="time_any">Any time</string>
+    <string name="time_up_to">Up to %1$s</string>
+    <string name="time_plus">%1$s+</string>
+
+    <plurals name="filters_applied_groups">
+        <item quantity="one">%1$d filter group applied</item>
+        <item quantity="other">%1$d filter groups applied</item>
+    </plurals>
 </resources>

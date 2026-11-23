@@ -53,4 +53,12 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <!-- Custom style for active filter chips -->
+    <style name="Widget.App.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/dust</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="android:textColor">@color/ink</item>
+        <item name="closeIconTint">@color/ink</item>
+        <item name="chipIconTint">@color/ink</item>
+    </style>
 </resources>

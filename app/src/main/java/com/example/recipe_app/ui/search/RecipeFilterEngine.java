@@ -19,41 +19,34 @@ public class RecipeFilterEngine {
         String normalizedQuery = query != null ? query.trim().toLowerCase(Locale.ROOT) : "";
 
         for (Recipe recipe : allRecipes) {
-            // 1. Name Search
             if (!normalizedQuery.isEmpty()) {
                 if (recipe.Name == null || !recipe.Name.toLowerCase(Locale.ROOT).contains(normalizedQuery)) {
                     continue;
                 }
             }
 
-            // 2. Dish Type (OR)
             if (!filter.dishTypes.isEmpty() && !filter.dishTypes.contains(recipe.DishType)) {
                 continue;
             }
 
-            // 3. Meal Type (OR)
             if (!filter.mealTypes.isEmpty() && !filter.mealTypes.contains(recipe.MealType)) {
                 continue;
             }
 
-            // 4. Prep Method (OR)
             if (!filter.prepMethods.isEmpty() && !filter.prepMethods.contains(recipe.PrepMethod)) {
                 continue;
             }
 
-            // 5. Diet Type (OR with special mappings)
             if (!filter.dietTypes.isEmpty() && !matchesDiet(recipe, filter)) {
                 continue;
             }
 
-            // 6. Allergens (Exclude)
             if (!filter.excludedAllergens.isEmpty() && recipe.Allergens != null) {
                 if (!Collections.disjoint(recipe.Allergens, filter.excludedAllergens)) {
                     continue; // Recipe contains at least one excluded allergen
                 }
             }
 
-            // 7. Time Range (using the new helper)
             if (!filter.matchesTime(recipe.PreparationTime)) {
                 continue;
             }
