@@ -5,6 +5,7 @@ import com.example.recipe_app.model.enums.DietType;
 import com.example.recipe_app.model.enums.DishType;
 import com.example.recipe_app.model.enums.MealType;
 import com.example.recipe_app.model.enums.PrepMethod;
+import com.example.recipe_app.ui.search.RecipeFilter;
 
 import java.util.Locale;
 
@@ -46,6 +47,19 @@ public class DisplayNames {
     public static String allergen(Allergen allergen) {
         if (allergen == null) return "";
         return formatEnum(allergen.name());
+    }
+
+    public static String formatTimeRange(int min, int max) {
+        if (min == RecipeFilter.DEFAULT_MIN_TIME && max == RecipeFilter.DEFAULT_MAX_TIME) {
+            return "Any time";
+        }
+        if (min == RecipeFilter.DEFAULT_MIN_TIME) {
+            return "Up to " + time(max);
+        }
+        if (max == RecipeFilter.DEFAULT_MAX_TIME) {
+            return time(min) + "+";
+        }
+        return time(min) + " – " + time(max);
     }
 
     public static String time(int minutes) {

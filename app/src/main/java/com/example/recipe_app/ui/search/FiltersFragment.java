@@ -185,14 +185,7 @@ public class FiltersFragment extends Fragment {
     }
 
     private void updateTimeLabel(int min, int max) {
-        if (min == RecipeFilter.DEFAULT_MIN_TIME && max == RecipeFilter.DEFAULT_MAX_TIME) {
-            textTimeRangeLabel.setText(R.string.filters_time_any);
-        } else {
-            String minStr = DisplayNames.time(min);
-            // Show "2 hr+" if the upper limit is at the default maximum
-            String maxStr = (max == RecipeFilter.DEFAULT_MAX_TIME) ? "2 hr+" : DisplayNames.time(max);
-            textTimeRangeLabel.setText(minStr + " – " + maxStr);
-        }
+        textTimeRangeLabel.setText(DisplayNames.formatTimeRange(min, max));
     }
 
     private void updateBottomBar() {

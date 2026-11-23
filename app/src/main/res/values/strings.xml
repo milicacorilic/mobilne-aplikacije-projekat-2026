@@ -157,4 +157,13 @@
     <string name="filters_time_title">Prep time</string>
     <string name="filters_time_helper">Select a time range.</string>
     <string name="filters_time_any">Any time</string>
+    <string name="remove_filter">Remove %1$s filter</string>
+    <string name="time_any">Any time</string>
+    <string name="time_up_to">Up to %1$s</string>
+    <string name="time_plus">%1$s+</string>
+
+    <plurals name="filters_applied_groups">
+        <item quantity="one">%1$d filter group applied</item>
+        <item quantity="other">%1$d filter groups applied</item>
+    </plurals>
 </resources>
