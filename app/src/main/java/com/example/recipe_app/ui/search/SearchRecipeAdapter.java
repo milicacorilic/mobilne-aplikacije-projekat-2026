@@ -41,7 +41,6 @@ public class SearchRecipeAdapter extends RecyclerView.Adapter<SearchRecipeAdapte
         holder.textName.setText(recipe.Name);
         holder.textTime.setText(holder.itemView.getContext().getString(R.string.prep_time_minutes, recipe.PreparationTime));
 
-        // Uppercase only in the adapter for the eyebrow design
         String dishLabel = DisplayNames.dishType(recipe.DishType);
         holder.textDishType.setText(dishLabel.toUpperCase(Locale.getDefault()));
 

@@ -145,4 +145,6 @@
         <item quantity="one">%1$d filter group selected</item>
         <item quantity="other">%1$d filter groups selected</item>
     </plurals>
+    <string name="filters_dish_type_title">Dish type</string>
+    <string name="filters_dish_type_helper">Select one or more dish types.</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.recipe_app.ui.search;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.recipe_app.R;
 import com.example.recipe_app.data.RecipeRepository;
 import com.example.recipe_app.model.Recipe;
+import com.example.recipe_app.model.enums.DishType;
+import com.example.recipe_app.util.DisplayNames;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
@@ -25,6 +28,7 @@ public class FiltersFragment extends Fragment {
 
     private MaterialButton buttonShowRecipes;
     private TextView textGroupsSelected;
+    private LinearLayout sectionsContainer;
 
     public FiltersFragment() {
         super(R.layout.fragment_filters);
@@ -37,7 +41,6 @@ public class FiltersFragment extends Fragment {
         viewModel = new ViewModelProvider(requireActivity()).get(SearchViewModel.class);
         filtersViewModel = new ViewModelProvider(this).get(FiltersViewModel.class);
 
-        // Create a draft copy of the currently applied filter if one doesn't exist
         if (filtersViewModel.draft == null) {
             RecipeFilter appliedFilter = viewModel.getFilter().getValue();
             filtersViewModel.draft = appliedFilter != null ? appliedFilter.copy() : new RecipeFilter();
@@ -46,14 +49,17 @@ public class FiltersFragment extends Fragment {
 
         buttonShowRecipes = view.findViewById(R.id.buttonShowRecipes);
         textGroupsSelected = view.findViewById(R.id.textGroupsSelected);
+        sectionsContainer = view.findViewById(R.id.sectionsContainer);
 
-        // Top bar actions
         view.findViewById(R.id.buttonClose).setOnClickListener(v -> {
             NavHostFragment.findNavController(this).popBackStack();
         });
 
         view.findViewById(R.id.buttonClearAll).setOnClickListener(v -> {
             draftFilter.clear();
+            // Rebuild the UI to uncheck all boxes
+            sectionsContainer.removeAllViews();
+            buildSections();
             updateBottomBar();
         });
 
@@ -62,7 +68,28 @@ public class FiltersFragment extends Fragment {
             NavHostFragment.findNavController(this).popBackStack();
         });
 
+        buildSections();
         updateBottomBar();
+    }
+
+    private void buildSections() {
+        FilterSectionView<DishType> dishSection = new FilterSectionView<>(requireContext());
+        DishType[] dishValues = DishType.values();
+        String[] dishLabels = new String[dishValues.length];
+        for (int i = 0; i < dishValues.length; i++) {
+            dishLabels[i] = DisplayNames.dishType(dishValues[i]);
+        }
+
+        dishSection.setup(
+                getString(R.string.filters_dish_type_title),
+                getString(R.string.filters_dish_type_helper),
+                dishValues,
+                dishLabels,
+                draftFilter.dishTypes,
+                this::updateBottomBar
+        );
+
+        sectionsContainer.addView(dishSection);
     }
 
     private void updateBottomBar() {
@@ -70,7 +97,6 @@ public class FiltersFragment extends Fragment {
         textGroupsSelected.setText(getResources().getQuantityString(
                 R.plurals.filters_groups_selected, groups, groups));
 
-        // Calculate how many recipes match this draft
         List<Recipe> filteredList = RecipeFilterEngine.apply(
                 RecipeRepository.getInstance().getAllRecipes(),
                 viewModel.getQuery().getValue(),
