@@ -14,11 +14,17 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.recipe_app.R;
 import com.example.recipe_app.data.RecipeRepository;
 import com.example.recipe_app.model.Recipe;
+import com.example.recipe_app.model.enums.Allergen;
+import com.example.recipe_app.model.enums.DietType;
 import com.example.recipe_app.model.enums.DishType;
+import com.example.recipe_app.model.enums.MealType;
+import com.example.recipe_app.model.enums.PrepMethod;
 import com.example.recipe_app.util.DisplayNames;
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class FiltersFragment extends Fragment {
 
@@ -57,7 +63,6 @@ public class FiltersFragment extends Fragment {
 
         view.findViewById(R.id.buttonClearAll).setOnClickListener(v -> {
             draftFilter.clear();
-            // Rebuild the UI to uncheck all boxes
             sectionsContainer.removeAllViews();
             buildSections();
             updateBottomBar();
@@ -73,23 +78,72 @@ public class FiltersFragment extends Fragment {
     }
 
     private void buildSections() {
-        FilterSectionView<DishType> dishSection = new FilterSectionView<>(requireContext());
+        // 1. Dish type
         DishType[] dishValues = DishType.values();
         String[] dishLabels = new String[dishValues.length];
         for (int i = 0; i < dishValues.length; i++) {
             dishLabels[i] = DisplayNames.dishType(dishValues[i]);
         }
-
-        dishSection.setup(
+        addFilterSection(
                 getString(R.string.filters_dish_type_title),
                 getString(R.string.filters_dish_type_helper),
-                dishValues,
-                dishLabels,
-                draftFilter.dishTypes,
-                this::updateBottomBar
-        );
+                dishValues, dishLabels, draftFilter.dishTypes);
 
-        sectionsContainer.addView(dishSection);
+        // 2. Diet type
+        List<DietType> dietList = new ArrayList<>();
+        for (DietType d : DietType.values()) {
+            if (d != DietType.REGULAR) dietList.add(d);
+        }
+        DietType[] dietValues = dietList.toArray(new DietType[0]);
+        String[] dietLabels = new String[dietValues.length];
+        for (int i = 0; i < dietValues.length; i++) {
+            dietLabels[i] = DisplayNames.dietType(dietValues[i]);
+        }
+        addFilterSection(
+                getString(R.string.filters_diet_title),
+                getString(R.string.filters_diet_helper),
+                dietValues, dietLabels, draftFilter.dietTypes);
+
+        // 3. Meal
+        MealType[] mealValues = MealType.values();
+        String[] mealLabels = new String[mealValues.length];
+        for (int i = 0; i < mealValues.length; i++) {
+            mealLabels[i] = DisplayNames.mealType(mealValues[i]);
+        }
+        addFilterSection(
+                getString(R.string.filters_meal_title),
+                getString(R.string.filters_meal_helper),
+                mealValues, mealLabels, draftFilter.mealTypes);
+
+        // 4. Prep method
+        PrepMethod[] methodValues = PrepMethod.values();
+        String[] methodLabels = new String[methodValues.length];
+        for (int i = 0; i < methodValues.length; i++) {
+            methodLabels[i] = DisplayNames.prepMethod(methodValues[i]);
+        }
+        addFilterSection(
+                getString(R.string.filters_method_title),
+                getString(R.string.filters_method_helper),
+                methodValues, methodLabels, draftFilter.prepMethods);
+
+        // 5. Allergens
+        Allergen[] allergenValues = Allergen.values();
+        String[] allergenLabels = new String[allergenValues.length];
+        for (int i = 0; i < allergenValues.length; i++) {
+            allergenLabels[i] = DisplayNames.allergen(allergenValues[i]);
+        }
+        addFilterSection(
+                getString(R.string.filters_allergens_title),
+                getString(R.string.filters_allergens_helper),
+                allergenValues, allergenLabels, draftFilter.excludedAllergens);
+    }
+
+    private <T extends Enum<T>> void addFilterSection(
+            String title, String helper, T[] values, String[] labels, Set<T> currentSelection) {
+
+        FilterSectionView<T> section = new FilterSectionView<>(requireContext());
+        section.setup(title, helper, values, labels, currentSelection, this::updateBottomBar);
+        sectionsContainer.addView(section);
     }
 
     private void updateBottomBar() {
