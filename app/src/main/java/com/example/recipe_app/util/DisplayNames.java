@@ -48,8 +48,16 @@ public class DisplayNames {
         return formatEnum(allergen.name());
     }
 
+    public static String time(int minutes) {
+        if (minutes < 60) return minutes + " min";
+        int hours = minutes / 60;
+        int mins = minutes % 60;
+        if (mins == 0) return hours + " hr";
+        return hours + " hr " + mins + " min";
+    }
+
     private static String formatEnum(String name) {
-        String formatted = name.replace("_", " ").toLowerCase(java.util.Locale.ROOT);
-        return formatted.substring(0, 1).toUpperCase(java.util.Locale.ROOT) + formatted.substring(1);
+        String formatted = name.replace("_", " ").toLowerCase(Locale.ROOT);
+        return formatted.substring(0, 1).toUpperCase(Locale.ROOT) + formatted.substring(1);
     }
 }

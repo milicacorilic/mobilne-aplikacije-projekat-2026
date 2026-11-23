@@ -1,6 +1,7 @@
 package com.example.recipe_app.ui.search;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.example.recipe_app.model.enums.MealType;
 import com.example.recipe_app.model.enums.PrepMethod;
 import com.example.recipe_app.util.DisplayNames;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.slider.RangeSlider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class FiltersFragment extends Fragment {
     private MaterialButton buttonShowRecipes;
     private TextView textGroupsSelected;
     private LinearLayout sectionsContainer;
+    private TextView textTimeRangeLabel;
 
     public FiltersFragment() {
         super(R.layout.fragment_filters);
@@ -78,7 +81,7 @@ public class FiltersFragment extends Fragment {
     }
 
     private void buildSections() {
-        // 1. Dish type
+        // 1. Dish Type
         DishType[] dishValues = DishType.values();
         String[] dishLabels = new String[dishValues.length];
         for (int i = 0; i < dishValues.length; i++) {
@@ -89,7 +92,7 @@ public class FiltersFragment extends Fragment {
                 getString(R.string.filters_dish_type_helper),
                 dishValues, dishLabels, draftFilter.dishTypes);
 
-        // 2. Diet type
+        // 2. Diet Type (Excluding REGULAR)
         List<DietType> dietList = new ArrayList<>();
         for (DietType d : DietType.values()) {
             if (d != DietType.REGULAR) dietList.add(d);
@@ -115,7 +118,10 @@ public class FiltersFragment extends Fragment {
                 getString(R.string.filters_meal_helper),
                 mealValues, mealLabels, draftFilter.mealTypes);
 
-        // 4. Prep method
+        // 4. Prep Time (Inserted after Meal)
+        addTimeSection();
+
+        // 5. Prep Method
         PrepMethod[] methodValues = PrepMethod.values();
         String[] methodLabels = new String[methodValues.length];
         for (int i = 0; i < methodValues.length; i++) {
@@ -126,7 +132,7 @@ public class FiltersFragment extends Fragment {
                 getString(R.string.filters_method_helper),
                 methodValues, methodLabels, draftFilter.prepMethods);
 
-        // 5. Allergens
+        // 6. Allergens
         Allergen[] allergenValues = Allergen.values();
         String[] allergenLabels = new String[allergenValues.length];
         for (int i = 0; i < allergenValues.length; i++) {
@@ -144,6 +150,49 @@ public class FiltersFragment extends Fragment {
         FilterSectionView<T> section = new FilterSectionView<>(requireContext());
         section.setup(title, helper, values, labels, currentSelection, this::updateBottomBar);
         sectionsContainer.addView(section);
+    }
+
+    private void addTimeSection() {
+        View timeView = LayoutInflater.from(requireContext()).inflate(R.layout.view_filter_time_section, sectionsContainer, false);
+
+        RangeSlider slider = timeView.findViewById(R.id.rangeSlider);
+        textTimeRangeLabel = timeView.findViewById(R.id.textTimeRangeLabel);
+
+        // Format the bubble labels on the thumbs
+        slider.setLabelFormatter(v -> DisplayNames.time(Math.round(v)));
+
+        // Set initial values from the draft
+        List<Float> values = new ArrayList<>();
+        values.add((float) draftFilter.minMinutes);
+        values.add((float) draftFilter.maxMinutes);
+        slider.setValues(values);
+
+        updateTimeLabel(draftFilter.minMinutes, draftFilter.maxMinutes);
+
+        slider.addOnChangeListener((rangeSlider, value, fromUser) -> {
+            List<Float> currentValues = rangeSlider.getValues();
+            int min = Math.round(currentValues.get(0));
+            int max = Math.round(currentValues.get(1));
+
+            draftFilter.minMinutes = min;
+            draftFilter.maxMinutes = max;
+
+            updateTimeLabel(min, max);
+            updateBottomBar();
+        });
+
+        sectionsContainer.addView(timeView);
+    }
+
+    private void updateTimeLabel(int min, int max) {
+        if (min == RecipeFilter.DEFAULT_MIN_TIME && max == RecipeFilter.DEFAULT_MAX_TIME) {
+            textTimeRangeLabel.setText(R.string.filters_time_any);
+        } else {
+            String minStr = DisplayNames.time(min);
+            // Show "2 hr+" if the upper limit is at the default maximum
+            String maxStr = (max == RecipeFilter.DEFAULT_MAX_TIME) ? "2 hr+" : DisplayNames.time(max);
+            textTimeRangeLabel.setText(minStr + " – " + maxStr);
+        }
     }
 
     private void updateBottomBar() {

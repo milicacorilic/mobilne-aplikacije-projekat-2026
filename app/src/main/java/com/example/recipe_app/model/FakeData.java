@@ -58,6 +58,17 @@ public class FakeData {
                 "Rich and moist.",
                 DishType.CAKE, MealType.DESSERT, DietType.VEGETARIAN, PrepMethod.BAKING,
                 new Allergen[]{Allergen.GLUTEN, Allergen.LACTOSE}));
+        list.add(makeRecipe(11, "Lentil Soup", "Pera Peric", 4, 40, "lentil_soup", 4.5f,
+                "Hearty and warming.",
+                DishType.SOUP, MealType.LUNCH, DietType.LENT, PrepMethod.BOILING,
+                new Allergen[]{}));
+
+        list.add(makeRecipe(12, "Chrono salad", "Pera Peric", 2, 20, "chrono_salad", 4.2f,
+                "Light and balanced.",
+                DishType.VEGETABLE_DISH, MealType.SALAD, DietType.CHRONO, PrepMethod.NO_COOK,
+                new Allergen[]{}));
+
+        for (Recipe r : list) r.Steps.addAll(getSteps());
 
         for (Recipe r : list) r.Steps.addAll(getSteps());
         return list;

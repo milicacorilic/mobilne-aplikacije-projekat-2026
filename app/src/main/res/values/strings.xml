@@ -154,4 +154,7 @@
     <string name="filters_method_helper">Select one or more prep methods.</string>
     <string name="filters_allergens_title">Allergens</string>
     <string name="filters_allergens_helper">Hide recipes containing any of these.</string>
+    <string name="filters_time_title">Prep time</string>
+    <string name="filters_time_helper">Select a time range.</string>
+    <string name="filters_time_any">Any time</string>
 </resources>
