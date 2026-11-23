@@ -40,8 +40,15 @@ public class MainActivity extends AppCompatActivity {
             goTo(item.getItemId());
             return true;
         });
-        bottomNav.setOnItemReselectedListener(item -> goTo(item.getItemId()));
 
+        bottomNav.setOnItemReselectedListener(item -> {
+            if (item.getItemId() == R.id.searchFragment) {
+                searchViewModel.clearAll();
+            }
+            goTo(item.getItemId());
+        });
+
+        // Bocni meni (Teammate's Drawer)
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navView = findViewById(R.id.nav_view);
 
@@ -88,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.appBar).setVisibility(isFilters ? View.GONE : View.VISIBLE);
             findViewById(R.id.bottom_nav).setVisibility(isFilters ? View.GONE : View.VISIBLE);
 
-            // Search reset
+            // Centralized Search Reset (When navigating to other tabs)
             if (destId != R.id.searchFragment && destId != R.id.filtersFragment) {
                 searchViewModel.clearAll();
             }

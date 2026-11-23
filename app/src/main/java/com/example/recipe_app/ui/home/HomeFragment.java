@@ -49,8 +49,32 @@ public class HomeFragment extends Fragment {
         // Kategorije -> pretraga
         ChipGroup chips = view.findViewById(R.id.chipGroup);
         for (int i = 0; i < chips.getChildCount(); i++) {
-            chips.getChildAt(i).setOnClickListener(v ->
-                    NavHostFragment.findNavController(this).navigate(R.id.searchFragment));
+            View chip = chips.getChildAt(i);
+            chip.setOnClickListener(v -> {
+                String chipText = ((com.google.android.material.chip.Chip) chip).getText().toString();
+
+                com.example.recipe_app.ui.search.SearchViewModel searchViewModel =
+                        new androidx.lifecycle.ViewModelProvider(requireActivity()).get(com.example.recipe_app.ui.search.SearchViewModel.class);
+
+                // Clear previous filters and apply the new one
+                com.example.recipe_app.ui.search.RecipeFilter newFilter = new com.example.recipe_app.ui.search.RecipeFilter();
+
+                if (chipText.equalsIgnoreCase("Salads")) {
+                    newFilter.mealTypes.add(com.example.recipe_app.model.enums.MealType.SALAD);
+                } else if (chipText.equalsIgnoreCase("Soups")) {
+                    newFilter.dishTypes.add(com.example.recipe_app.model.enums.DishType.SOUP);
+                } else if (chipText.equalsIgnoreCase("Deserts")) {
+                    newFilter.mealTypes.add(com.example.recipe_app.model.enums.MealType.DESSERT);
+                } else if (chipText.equalsIgnoreCase("Pizza")) {
+                    newFilter.dishTypes.add(com.example.recipe_app.model.enums.DishType.PIZZA);
+                }
+
+                searchViewModel.setFilter(newFilter);
+                searchViewModel.setQuery(""); // Clear text search
+
+                // Navigate to Search tab
+                NavHostFragment.findNavController(this).navigate(R.id.action_home_to_search);
+            });
         }
 
         // FAB -> dodavanje recepta
